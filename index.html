@@ -11,58 +11,28 @@
 <body>
 	个人站点<br/>
 	首次试验
-	<table class="table">
-		<tr>
-			<th>序号</th>
-			<th>名称</th>
-			<th></th>
-		</tr>
-		<tr>
-			<td>0</td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td>0</td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td>0</td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td>0</td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td>0</td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td>0</td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td>0</td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td>0</td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td>0</td>
-			<td></td>
-			<td></td>
-		</tr>
-	</table>
+	<audio src="./static/audio/bgm.mp3" id="audios" autoplay preload loop="loop"></audio>  
+	    
+
 </body>
 </html>
 <script type="text/javascript" src="./static/jquery/jquery-1.8.3.min.js"></script>
+<script>
+function audioAutoPlay(id){  
+    var audio = document.getElementById(id),
+	play = function(){  
+	    audio.play();  
+	    document.removeEventListener("touchstart",play, false);  
+	};  
+    audio.play();  
+    document.addEventListener("WeixinJSBridgeReady", function () {  
+	play();  
+    }, false);  
+    document.addEventListener('YixinJSBridgeReady', function() {  
+	play();  
+    }, false);  
+    document.addEventListener("touchstart",play, false);  
+}  
+audioAutoPlay('audios');
+
+</script>
